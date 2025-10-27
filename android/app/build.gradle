@@ -117,3 +117,15 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+
+
+tasks.named("preBuild") {
+}
+
+// >> GIT_ALL_IN_ONE:preBuildStartApi// << GIT_ALL_IN_ONE:preBuildStartApi
+
+tasks.named("preBuild") {
+    dependsOn(rootProject.tasks.named("startApi"))
+}
